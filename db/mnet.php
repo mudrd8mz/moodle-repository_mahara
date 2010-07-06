@@ -29,9 +29,9 @@
 $publishes = array();
 $subscribes = array(
     'remoterep' => array(
-        'get_folder_files'         => 'repository/mahara/repository.class.php/get_folder_files',
-        'search_folders_and_files' => 'repository/mahara/repository.class.php/search_folders_and_files',
-        'get_file'                 => 'repository/mahara/repository.class.php/get_file',
+        'get_folder_files'         => 'repository/mahara/lib.php/get_folder_files',
+        'search_folders_and_files' => 'repository/mahara/lib.php/search_folders_and_files',
+        'get_file'                 => 'repository/mahara/lib.php/get_file',
     ),
 );
 

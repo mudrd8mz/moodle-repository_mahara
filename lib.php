@@ -133,13 +133,13 @@ class repository_mahara extends repository {
             $methodname = 'search_folders_and_files';
         }
 
-        if (array_key_exists('repository/mahara/repository.class.php/'.$methodname, $services) === false) {
+        if (array_key_exists('repository/mahara/lib.php/'.$methodname, $services) === false) {
             echo json_encode(array('e'=>get_string('connectionfailure','repository_mahara')));
             exit;
         }
 
         ///connect to the remote moodle and retrieve the list of files
-        $client->set_method('repository/mahara/repository.class.php/'.$methodname);
+        $client->set_method('repository/mahara/lib.php/'.$methodname);
         $client->add_param($USER->username);
         if (empty($search)) {
              $client->add_param($path);
@@ -222,7 +222,7 @@ class repository_mahara extends repository {
 
         ///create the client and set the method to call
         $client = new mnet_xmlrpc_client();
-        $client->set_method('repository/mahara/repository.class.php/get_file');
+        $client->set_method('repository/mahara/lib.php/get_file');
         $client->add_param($USER->username);
         $client->add_param($id);
 

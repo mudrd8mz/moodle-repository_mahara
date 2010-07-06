@@ -23,6 +23,7 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+$string['pluginname'] = 'Mahara';
 $string['configplugin'] = 'Configuration for Mahara repository';
 $string['connectionfailure'] = 'Failed to retrieve file listing - The host moodle has either a version older than 2.0, either its Mahara Repository service hasn\'t been activated';
 $string['emptyfilelist'] = 'There are no files to show';

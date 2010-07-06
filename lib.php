@@ -109,7 +109,7 @@ class repository_mahara extends repository {
         ///check that the peer has been setup
         if (!array_key_exists('peer',$this->options)) {
             echo json_encode(array('e'=>get_string('error').' 9010: '.get_string('hostnotfound','repository_mahara')));
-            exit;
+            return false;
         }
 
         $host = $DB->get_record('mnet_host',array('id' => $this->options['peer'])); //need to retrieve the host url
@@ -117,7 +117,7 @@ class repository_mahara extends repository {
         ///check that the peer host exists into the database
         if (empty($host)) {
             echo json_encode(array('e'=>get_string('error').' 9011: '.get_string('hostnotfound','repository_mahara')));
-            exit;
+            return false;
         }
 
         $mnet_peer = new mnet_peer();
@@ -135,7 +135,7 @@ class repository_mahara extends repository {
 
         if (array_key_exists('repository/mahara/lib.php/'.$methodname, $services) === false) {
             echo json_encode(array('e'=>get_string('connectionfailure','repository_mahara')));
-            exit;
+            return false;
         }
 
         ///connect to the remote moodle and retrieve the list of files
@@ -154,7 +154,7 @@ class repository_mahara extends repository {
                 $message .= "ERROR: $errormessage . ";
             }
             echo json_encode(array('e'=>$message)); //display all error messages
-            exit;
+            return false;
         }
 
         $services = $client->response;
@@ -169,7 +169,7 @@ class repository_mahara extends repository {
         ///display error message if we could retrieve the list or if nothing were returned
         if (empty($filesandfolders)) {
             echo json_encode(array('e'=>get_string('failtoretrievelist','repository_mahara')));
-            exit;
+            return false;
         }
 
 

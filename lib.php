@@ -215,6 +215,7 @@ class repository_mahara extends repository {
     public function get_file($id, $file = '') {
         global $CFG, $DB, $USER;
 
+        require_once($CFG->dirroot . '/mnet/xmlrpc/client.php');
         ///set mnet environment and set the mnet host
         $host = $DB->get_record('mnet_host',array('id' => $this->options['peer'])); //retrieve the host url
         $mnet_peer = new mnet_peer();
